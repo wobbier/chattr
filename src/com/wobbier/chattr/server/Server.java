@@ -37,7 +37,7 @@ public class Server {
 	ServerSocket      serverSocket;
 	DataOutputStream  outputStream;
 	DataInputStream   inputStream;
-	ArrayList<User>   userPool;
+	List<User>        userPool;
 	
 	/*
 	 * Usage: java Server port
@@ -61,7 +61,7 @@ public class Server {
 		userPool = new ArrayList<User>();
 		try {
 			serverSocket = new ServerSocket(port);
-            while(true) {
+			while(true) {
 				Socket socket = serverSocket.accept();
 				User user = new User(socket, this);
 				Thread thread = new Thread(user);
