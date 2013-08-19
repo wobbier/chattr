@@ -20,7 +20,6 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
 package com.wobbier.chattr.server;
 
 import java.io.*;
@@ -32,7 +31,6 @@ import java.net.*;
  * @author Mitch Andrews
  * @version 1.0
  */
-
 public class User implements Runnable {
 	Socket userSocket;
 	Server userServer;
@@ -59,12 +57,11 @@ public class User implements Runnable {
 	/*
 	* Each user has their own thread so we can handle simultaneous input from multiple users.
 	*/
-	public void run()
-        {
+	public void run() {
                 String output = null;
                 try {
-                		while((output = userInput.readLine()) != null)
-                                userServer.broadcast(output);
+					while((output = userInput.readLine()) != null)
+						userServer.broadcast(output);
                 } catch(IOException e) {
                         e.printStackTrace();
                 } finally {

@@ -20,19 +20,24 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
 package com.wobbier.chattr.client;
 
 import java.net.*;
 import java.io.*;
 import java.lang.Thread;
 
+/*
+ * A simple chattr console client.
+ * 
+ * @author Mitch Andrews
+ * @version 1.0
+ */
 public class Client implements Runnable {
 	String name;
 	Socket socket;
 	DataOutputStream outputStream;
-    BufferedReader inputStream;
-    BufferedReader localInputStream = new BufferedReader(new InputStreamReader(System.in));
+	BufferedReader inputStream;
+	BufferedReader localInputStream = new BufferedReader(new InputStreamReader(System.in));
     
 	/*
 	 * Usage: java Client address port
@@ -70,13 +75,12 @@ public class Client implements Runnable {
 			e.printStackTrace();
 		}
 		new Thread(this).start();
-		while(true)	{
+		while(true) {
 			String inputString = null;
-			try {
+			try
 				inputString = localInputStream.readLine();
-			} catch (IOException e) {
+			catch (IOException e)
 				e.printStackTrace();
-			}
 			if(inputString != null) {
 				try {
 					outputStream.writeBytes(name + ": " + inputString);
@@ -87,6 +91,7 @@ public class Client implements Runnable {
 			}
 		}
 	}
+	
 	/*
 	 * Check for other messages from the server on a seperate thread.
 	 */

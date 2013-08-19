@@ -20,7 +20,6 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
 package com.wobbier.chattr.example;
 
 import java.net.*;
@@ -38,7 +37,6 @@ import javax.swing.text.*;
  * @author Mitch Andrews
  * @version 1.0
  */
-
 public class Chattr extends JFrame implements Runnable, ActionListener{
 	private static final long serialVersionUID = -271275853743441174L;
 	final int DEFAULT_PORT = 6997;
@@ -64,7 +62,6 @@ public class Chattr extends JFrame implements Runnable, ActionListener{
 	 * Connects to specified server.
 	 * Gets screen name from user.
 	 */
-	
 	public Chattr(){
 		input = (String)JOptionPane.showInputDialog(
                 this,
@@ -132,7 +129,6 @@ public class Chattr extends JFrame implements Runnable, ActionListener{
 	/*
 	 * Reads incoming messages to the client and adds them to the chat field.
 	 */
-	
 	public void run(){
 		String output = null;
 		try {
@@ -148,7 +144,6 @@ public class Chattr extends JFrame implements Runnable, ActionListener{
 	/*
 	 * When the user hits enter we write the message to the socket.
 	 */
-	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		String inputString = inputBox.getText();

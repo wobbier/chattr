@@ -20,7 +20,6 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
 package com.wobbier.chattr.server;
 
 import java.io.*;
@@ -29,12 +28,11 @@ import java.lang.Thread;
 import java.util.*;
 
 /*
- * A simple java chat server
+ * A simple java console chat server
  * 
  * @author Mitch Andrews
  * @version 1.0
  */
-
 public class Server {
 	ServerSocket      serverSocket;
 	DataOutputStream  outputStream;
@@ -63,13 +61,13 @@ public class Server {
 		userPool = new ArrayList<User>();
 		try {
 			serverSocket = new ServerSocket(port);
-				while(true) {
-					Socket socket = serverSocket.accept();
-					User user = new User(socket, this);
-					Thread thread = new Thread(user);
-					thread.start();
-					userPool.add(user);
-				}
+            while(true) {
+				Socket socket = serverSocket.accept();
+				User user = new User(socket, this);
+				Thread thread = new Thread(user);
+				thread.start();
+				userPool.add(user);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
